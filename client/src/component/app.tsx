@@ -1,22 +1,29 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
-  createBrowserRouter,
-  createRoutesFromElements,
-  Route,
-  RouterProvider,
+    createBrowserRouter,
+    createRoutesFromElements,
+    Route,
+    RouterProvider,
 } from 'react-router-dom';
+import {ThemeProvider} from 'styled-components';
+import {dark, light} from '../config/theme';
+import {useTypeSelector} from '../hooks/useTypeSelector';
 
 const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route>
-    </Route>
-  )
+    createRoutesFromElements(
+        <Route>
+        </Route>
+    )
 );
 const App = () => {
-  return (
-        <RouterProvider router={router} />
 
-  );
+    const {themes} = useTypeSelector((state) => state.theme);
+
+
+    return (
+        <ThemeProvider theme={themes == 'dark' ? dark : light}>
+            <RouterProvider router={router}/>
+        </ThemeProvider>
+    );
 };
-
 export default App;
