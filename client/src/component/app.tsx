@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
     createBrowserRouter,
     createRoutesFromElements,
@@ -8,26 +8,37 @@ import {
 import {ThemeProvider} from 'styled-components';
 import {dark, light} from '../config/theme';
 import {useTypeSelector} from '../hooks/useTypeSelector';
+import { AuthProvider } from './hoc/auth.provider';
 import Global from './styled/Global';
 import Layout from './styled/organism/Layout';
+import {useAppDispatch} from "../redux/store";
+import { checkAuth } from '../redux/thunk/auth.thunk';
+import { AuthPage } from '../page/auth.page';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route>
             <Route element={<Layout/>}>
             </Route>
+            <Route path="/login" element={<AuthPage />} />
         </Route>
     )
 );
 const App = () => {
-
+    const dispatch=useAppDispatch()
     const {themes} = useTypeSelector((state) => state.theme);
-
+    useEffect(() => {
+        if (localStorage.getItem('authToken')) {
+            dispatch(checkAuth());
+        }
+    }, []);
 
     return (
         <ThemeProvider theme={themes == 'dark' ? dark : light}>
-            <Global/>
-            <RouterProvider router={router}/>
+            <Global />
+            <AuthProvider>
+                <RouterProvider router={router} />
+            </AuthProvider>
         </ThemeProvider>
     );
 };

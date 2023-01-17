@@ -10,10 +10,12 @@ import {
   REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import authReducer from '../reducer/auth.reducer';
 import theme from '../reducer/theme.reducer';
 
 const reducers = combineReducers({
   theme: theme,
+  auth: authReducer,
 });
 
 // [apiSlice.reducerPath]: apiSlice.reducer
