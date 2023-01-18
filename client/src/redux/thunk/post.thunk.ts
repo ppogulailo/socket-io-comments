@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { PostApi } from '../../api/post.api';
-import { IPost, IPostCreate } from '../../types/components/post/post.type';
+import { IPost, IPostCreate } from '../../types/post/post.type';
 import {IFindPost} from "../../types/redux/redux.type";
 
 

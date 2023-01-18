@@ -5,16 +5,16 @@ import { LinkParagraph } from '../styled/atom/Text';
 import * as React from 'react';
 import { useForm } from 'react-hook-form';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
+import { IRegistration } from '../../types/auth/auth.type';
 import { FC } from 'react';
 import { emailValidation, requireString } from '../../config/customValidation/validation';
 import { Button } from '../styled/atom/Button';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { Form, Text, Block } from '../../page/auth.page';
+import { useAppDispatch } from '../../redux/store';
 import { useNavigate } from 'react-router-dom';
 import { signin } from '../../redux/thunk/auth.thunk';
 import styled from 'styled-components';
-import { useAppDispatch } from '../../redux/actions/actions';
-import { IRegistration } from '../../types/components/auth/auth.type';
 
 interface IFormInputs {
   email: string;

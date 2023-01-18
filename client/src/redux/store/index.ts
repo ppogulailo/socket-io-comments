@@ -1,5 +1,4 @@
-import { configureStore, combineReducers, AsyncThunk, AnyAction } from '@reduxjs/toolkit';
-import { useDispatch } from 'react-redux';
+import { configureStore, combineReducers, AsyncThunk } from '@reduxjs/toolkit';
 import {
   persistStore,
   persistReducer,
@@ -20,9 +19,8 @@ const reducers = combineReducers({
   post: postReducer,
 });
 
-// [apiSlice.reducerPath]: apiSlice.reducer
 const persistedReducer = persistReducer(
-  { key: 'root', storage ,blacklist: ['post'] },
+  { key: 'root', storage ,blacklist: ['comment', 'post'] },
   reducers
 );
 const store = configureStore({
@@ -33,7 +31,6 @@ const store = configureStore({
         ignoredActions: [FLUSH, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
-  // .concat(apiSlice.middleware),
 });
 
 export const persistor = persistStore(store);
