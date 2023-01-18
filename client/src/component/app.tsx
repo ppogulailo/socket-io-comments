@@ -11,14 +11,24 @@ import {useTypeSelector} from '../hooks/useTypeSelector';
 import { AuthProvider } from './hoc/auth.provider';
 import Global from './styled/Global';
 import Layout from './styled/organism/Layout';
-import {useAppDispatch} from "../redux/store";
 import { checkAuth } from '../redux/thunk/auth.thunk';
 import { AuthPage } from '../page/auth.page';
+import { RequireAuthProvider } from './hoc/require-auth.provider';
+import { PostPage } from '../page/post.page';
+import { useAppDispatch } from '../redux/actions/actions';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
         <Route>
             <Route element={<Layout/>}>
+                <Route
+                    path="/"
+                    element={
+                        <RequireAuthProvider>
+                            <PostPage />
+                        </RequireAuthProvider>
+                    }
+                />
             </Route>
             <Route path="/login" element={<AuthPage />} />
         </Route>

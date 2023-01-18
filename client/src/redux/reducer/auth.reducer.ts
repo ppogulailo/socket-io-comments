@@ -1,6 +1,6 @@
 import { createSlice, isFulfilled } from '@reduxjs/toolkit';
 import { IAuthState } from '../../types/redux/redux.type';
-import { isError, isPendingAction } from '../store';
+import {isError, isPendingAction } from '../actions/actions';
 import { checkAuth, logout, signin, signup } from '../thunk/auth.thunk';
 
 const initialState: IAuthState = {

@@ -1,6 +1,7 @@
 import React, { FC, useContext } from 'react';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
-import { ReactChildren } from '../../types/post/post.type';
+import { ReactChildren } from '../../types/components/post/post.type';
+
 
 const Auth = React.createContext<{ isAuth: boolean | null } | null>(null);
 

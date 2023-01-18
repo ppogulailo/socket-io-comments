@@ -1,3 +1,4 @@
+import { HttpModule } from '@nestjs/axios';
 import {
     MiddlewareConsumer,
     Module, NestModule,
@@ -5,6 +6,8 @@ import {
 } from '@nestjs/common';
 import {ConfigModule} from '@nestjs/config';
 import { AuthModule } from './auth/auth.module';
+import { FilesModule } from './files/files.module';
+import { PostModule } from './post/post.module';
 import { AuthMiddleware } from './common/guards/AuthCheak.guard';
 import { UsersModule } from './users/users.module';
 
@@ -14,6 +17,9 @@ import { UsersModule } from './users/users.module';
             envFilePath: '.env',
         }),
         AuthModule,
+        PostModule,
+        FilesModule,
+        HttpModule,
         UsersModule,
     ],
 })
