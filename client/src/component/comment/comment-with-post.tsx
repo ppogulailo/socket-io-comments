@@ -1,6 +1,7 @@
 import { useComment } from '../hoc/comment.provider';
 import { Center, ColorText, TextOne } from './comment';
 import { CommentForm } from './comment.form';
+import { Pagination } from '../styled/organism/Pagination';
 import { CommentFilter } from './comment.filter';
 import { CommentList } from './comment.list';
 import styled from 'styled-components';
@@ -19,7 +20,7 @@ const GridContainer = styled.div`
   align-items: center;
 `;
 
-export const CommentWithPost = () => {
+export const CommentWithPost = (): JSX.Element => {
   const [searchParams] = useSearchParams();
   const { txtMessage, isLoading } = useTypeSelector((state) => state.post);
   const { post, rootComments, commentAdd, commentFind, downloadTxt, count } = useComment();
@@ -73,7 +74,7 @@ export const CommentWithPost = () => {
       <CommentForm onSubmit={onCommentCreate} />
       <Form></Form>
       <ColorText>Comments</ColorText>
-        {(comments: IComment[]) => <CommentList comments={comments} />}
+      {(comments: IComment[]) => <CommentList comments={comments} />}
     </>
   );
 };

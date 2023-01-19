@@ -1,7 +1,7 @@
 import { createSlice, isFulfilled } from '@reduxjs/toolkit';
 import { IPostState } from '../../types/redux/redux.type';
-import {isError, isPendingAction } from '../actions/actions';
 import { createPost, downloadTxtPost, fetchPost, removePost } from '../thunk/post.thunk';
+import { isError, isPendingAction } from '../actions/actions';
 
 const initialState: IPostState = {
   post: null,

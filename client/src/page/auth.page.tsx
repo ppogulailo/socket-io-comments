@@ -20,7 +20,7 @@ export const Text = styled.div`
 `;
 
 export const Form = styled.form``;
-export const AuthPage = () => {
+export const AuthPage = (): JSX.Element => {
   const navigate = useNavigate();
   const authError = useTypeSelector((state) => state.auth.error);
   useEffect(() => {

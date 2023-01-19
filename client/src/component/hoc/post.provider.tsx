@@ -2,15 +2,16 @@ import React, { FC, useContext, useEffect } from 'react';
 import { useTypeSelector } from '../../hooks/useTypeSelector';
 import { fetchPost, createPost, removePost } from '../../redux/thunk/post.thunk';
 import Load from '../styled/organism/Load';
+import { useAppDispatch } from '../../redux/store';
+import { IPostCreate, ReactChildren } from '../../types/post/post.type';
+import { IPostContext } from '../../types/comment/comment.type';
 import { useSearchParams } from 'react-router-dom';
-import { IPostContext, IPostCreate, ReactChildren } from '../../types/components/post/post.type';
-import { useAppDispatch } from '../../redux/actions/actions';
 
 const Post = React.createContext<IPostContext | null>(null);
 
-export function usePost() {
+export function usePost(): IPostContext {
   const postContext = useContext(Post);
-  if (!postContext) throw new Error('Unexpected error');
+  if (!postContext) throw new Error('You need to use this hook inside a context provider');
   return postContext;
 }
 

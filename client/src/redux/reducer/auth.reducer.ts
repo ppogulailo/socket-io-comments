@@ -1,6 +1,6 @@
 import { createSlice, isFulfilled } from '@reduxjs/toolkit';
 import { IAuthState } from '../../types/redux/redux.type';
-import {isError, isPendingAction } from '../actions/actions';
+import { isError, isPendingAction } from '../actions/actions';
 import { checkAuth, logout, signin, signup } from '../thunk/auth.thunk';
 
 const initialState: IAuthState = {
@@ -30,8 +30,8 @@ const itemSlice = createSlice({
         localStorage.setItem('authToken', payload);
       })
       // eslint-disable-next-line @typescript-eslint/no-empty-function
-      .addCase(logout.fulfilled, (state, action) => {})
-      .addCase(checkAuth.rejected, (state, { payload }) => {
+      .addCase(logout.fulfilled, () => {})
+      .addCase(checkAuth.rejected, (state) => {
         state.isAuth = false;
         localStorage.removeItem('authToken');
       })

@@ -14,7 +14,7 @@ const ErrorBlock = styled(motion.div)`
   z-index: 2;
 `;
 
-export const ErrorStickyHeader = ({ error }: { error: string | null }) => (
+export const ErrorStickyHeader = ({ error }: { error: string | null }): JSX.Element => (
   <ErrorBlock
     initial={{ opacity: 0 }}
     animate={{

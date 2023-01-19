@@ -47,7 +47,7 @@ const StyledIconSun = styled(FaSun)`
 const StyledIconReact = styled(FaReact)`
   color: hsl(349, 52%, 61%);
 `;
-const Header = () => {
+const Header = (): JSX.Element => {
   const dispatch = useAppDispatch();
   const { themes } = useTypeSelector((state) => state.theme);
   const isDarkTheme = themes === 'dark';

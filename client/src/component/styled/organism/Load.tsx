@@ -40,7 +40,7 @@ export const Loader = styled(motion.div)`
   }
 `;
 
-const Load = () => {
+const Load = (): JSX.Element => {
   return (
     <LoadWrapper>
       <Loader />

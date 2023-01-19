@@ -12,7 +12,7 @@ export const StyledIoWarning = styled(IoWarningOutline)`
   margin-right: 1rem;
   color: ${(props) => props.theme.errorColor};
 `;
-export const ErrorMessage = ({ error }: { error: string | any }) => {
+export const ErrorMessage = ({ error }: { error: string }): JSX.Element => {
   return (
     <Error>
       <StyledIoWarning />

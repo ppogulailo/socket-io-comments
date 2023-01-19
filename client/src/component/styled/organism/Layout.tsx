@@ -6,7 +6,7 @@ import Main from '../atom/Main';
 import { useTypeSelector } from '../../../hooks/useTypeSelector';
 import { ErrorStickyHeader } from './ErrorBlock';
 
-const Layout = () => {
+const Layout = (): JSX.Element => {
   const { error: postError } = useTypeSelector((state) => state.post);
   const { error: commentError } = useTypeSelector((state) => state.comment);
   const { error: authError } = useTypeSelector((state) => state.auth);

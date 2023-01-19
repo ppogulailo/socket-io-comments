@@ -19,56 +19,53 @@ function connectToSocket() {
 interface CallBackValue<T> {
   (key: T): void;
 }
+
 export const CommentApi = {
-  connect() {
+  connect(): void {
     connectToSocket();
     socket.connect();
   },
-  disconnect() {
+  disconnect(): void {
     socket.removeAllListeners();
     socket.disconnect();
   },
-  onError(callback: any) {
+  onError(callback: CallBackValue<Error>): void {
     socket.on('error', callback);
   },
-  sendComment(comment: ICommentCreate) {
+  sendComment(comment: ICommentCreate): void {
     socket.emit('add', comment);
   },
-  updateComment(comment: ICommentUpdate) {
+  updateComment(comment: ICommentUpdate): void {
     socket.emit('update', comment);
   },
-  deleteComment(id: string) {
+  deleteComment(id: string): void {
     socket.emit('remove', id);
   },
-  findComment(comment: ICommentFind) {
+  findComment(comment: ICommentFind): void {
     socket.emit('find', comment);
   },
-  likeComment(id: string) {
+  likeComment(id: string): void {
     socket.emit('toggleLike', id);
   },
-  getChildrenComment(id: any[]) {
+  getChildrenComment(id: string[]) {
     socket.emit('getChildren', id);
   },
-  onGetChildrenComment(callback: CallBackValue<IComment[]>) {
+  onGetChildrenComment(callback: CallBackValue<IComment[]>): void {
     socket.on('onGetChildren', callback);
   },
-  onSendComment(callback: CallBackValue<IComment>) {
+  onSendComment(callback: CallBackValue<IComment>): void {
     socket.on('onAdd', callback);
-    socket.on('Error', (err: any) => console.log(err));
-    socket.on('connect_error', (err: any) => console.log(err));
-    socket.on('connect_failed', (err: any) => console.log(err));
-    socket.on('Exception', (err: any) => console.log(err));
   },
-  onUpdateComment(callback: CallBackValue<ICommentUpdate>) {
+  onUpdateComment(callback: CallBackValue<ICommentUpdate>): void {
     socket.on('onUpdate', callback);
   },
-  onDeleteComment(callback: CallBackValue<{ id: string }>) {
+  onDeleteComment(callback: CallBackValue<{ id: string }>): void {
     socket.on('onRemove', callback);
   },
-  onFindComment(callback: CallBackValue<IComment[]>) {
+  onFindComment(callback: CallBackValue<IComment[]>): void {
     socket.on('onFind', callback);
   },
-  onLikeComment(callback: CallBackValue<{ addLike: boolean; id: string }>) {
+  onLikeComment(callback: CallBackValue<{ addLike: boolean; id: string }>): void {
     socket.on('onToggleLike', callback);
   },
 };

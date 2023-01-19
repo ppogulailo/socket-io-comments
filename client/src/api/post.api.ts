@@ -1,8 +1,7 @@
 import { $api, API_URL } from '../config/axios';
 import { AxiosResponse } from 'axios';
-import {IPost, IPostCreate } from '../types/components/post/post.type';
 
-
+import { IPost, IPostCreate } from '../types/post/post.type';
 
 export const PostApi = {
   getPost: (page: number): Promise<AxiosResponse<{ post: IPost[]; count: number }>> => {

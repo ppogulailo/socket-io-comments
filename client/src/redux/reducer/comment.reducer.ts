@@ -1,15 +1,7 @@
-import { AnyAction, createSlice } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { ICommentState } from '../../types/redux/redux.type';
 import { findComment, getCommentChildren } from '../thunk/comment.thunk';
-import { PendingAction } from '../store';
-
-export function isPendingAction(action: AnyAction): action is PendingAction {
-  return action.type.endsWith('/pending');
-}
-
-export function isError(action: AnyAction) {
-  return action.type.endsWith('/rejected');
-}
+import { isError, isPendingAction } from '../actions/actions';
 
 const initialState: ICommentState = {
   comments: [],
@@ -69,15 +61,12 @@ const commentSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(findComment.pending, (state, action) => {
+      .addCase(findComment.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getCommentChildren.pending, (state, action) => {
+      .addCase(getCommentChildren.pending, (state) => {
         state.isLoadingComment = true;
       })
-      // .addCase(findComment.fulfilled, (state, action) => {
-      //    console.log('adfd')
-      // })
       .addMatcher(isError, (state, action) => {
         state.error = action.payload.message;
       })

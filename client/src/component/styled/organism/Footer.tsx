@@ -19,7 +19,7 @@ const Wrapper = styled(Link).attrs({
   background-color: ${(props) => props.theme.background};
   margin: 0rem 6rem;
 `;
-const Footer = () => (
+const Footer = (): JSX.Element => (
   <HeaderEl>
     <Wrapper>
       <FaCubes size={42} color={'hsl(349,52%,61%)'} />

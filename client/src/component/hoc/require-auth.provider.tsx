@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { FC, useEffect } from 'react';
-import { ReactChildren } from '../../types/components/post/post.type';
+import { ReactChildren } from '../../types/post/post.type';
 
 const RequireAuthProvider: FC<ReactChildren> = ({ children }) => {
   const navigate = useNavigate();

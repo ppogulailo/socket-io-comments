@@ -107,7 +107,7 @@ export const startCommentListen = createAsyncThunk<void, undefined, { rejectValu
 );
 export const stopCommentListen = createAsyncThunk<void, undefined, { rejectValue: string }>(
   'comment/stopCommentListen',
-  async (_, { rejectWithValue, dispatch }) => {
+  async (_, { rejectWithValue }) => {
     try {
       CommentApi.disconnect();
     } catch (e) {

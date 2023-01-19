@@ -1,8 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { PostApi } from '../../api/post.api';
 import { IPost, IPostCreate } from '../../types/post/post.type';
-import {IFindPost} from "../../types/redux/redux.type";
-
+import { IFindPost } from '../../types/redux/redux.type';
 
 export const fetchPost = createAsyncThunk<IFindPost, number, { rejectValue: string }>(
   'post/fetch',

@@ -96,7 +96,7 @@ export const CommentForm: FC<ICommentFormProp> = ({
           )}
         </div>
       </ContainerGrid>
-      {errors.htmlInput && <ErrorMessage error={errors.htmlInput?.message} />}
+      {errors.htmlInput?.message && <ErrorMessage error={errors.htmlInput.message} />}
     </Form>
   );
 };

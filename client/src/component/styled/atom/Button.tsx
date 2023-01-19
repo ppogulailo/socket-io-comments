@@ -29,6 +29,6 @@ const ButtonStyle = styled(motion.button).attrs((props) => ({
     cursor: revert;
   }
 `;
-export const Button = ({ ...props }) => {
+export const Button = ({ ...props }): JSX.Element => {
   return <ButtonStyle {...props} whileTap={{ scale: 0.8 }} />;
 };

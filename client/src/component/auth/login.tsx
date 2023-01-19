@@ -54,13 +54,15 @@ export const Login: FC<IRegistration> = ({ toggle, setToggle }) => {
           <Text>Log in</Text>
           <Container>
             <TextField validation={register('email', emailValidation)} placeholder="Email" />
-            {errors.email && <ErrorMessage error={errors.email?.message}></ErrorMessage>}
+            {errors.email?.message && <ErrorMessage error={errors.email.message}></ErrorMessage>}
             <TextField
               validation={register('password', requireString)}
               type="password"
               placeholder="Password"
             />
-            {errors.password && <ErrorMessage error={errors.password?.message}></ErrorMessage>}
+            {errors.password?.message && (
+              <ErrorMessage error={errors.password.message}></ErrorMessage>
+            )}
             <ReCAPTCHA
               onChange={onChange}
               sitekey="6LeuvdIjAAAAAAJxcuFahurWn_QvvYcHJeUY_0Ff"

@@ -62,18 +62,20 @@ export const Registration: FC<IRegistration> = ({ toggle, setToggle }) => {
             <InputRegContainer>
               <TextField validation={register('name', requireString)} placeholder="Name" />
             </InputRegContainer>
-            {errors.name && <ErrorMessage error={errors.name?.message} />}
+            {errors.name?.message && <ErrorMessage error={errors.name.message} />}
             <TextField
               error={errors.name?.message}
               validation={register('email', emailValidation)}
               placeholder="Email"
             />
-            {errors.email && <ErrorMessage error={errors.email?.message}></ErrorMessage>}
+            {errors.email?.message && <ErrorMessage error={errors.email.message}></ErrorMessage>}
             <TextField
               validation={register('password', passwordValidation)}
               placeholder="Password"
             />
-            {errors.password && <ErrorMessage error={errors.password?.message}></ErrorMessage>}
+            {errors.password?.message && (
+              <ErrorMessage error={errors.password.message}></ErrorMessage>
+            )}
             <ReCAPTCHA
               onChange={onChange}
               sitekey="6LeuvdIjAAAAAAJxcuFahurWn_QvvYcHJeUY_0Ff"

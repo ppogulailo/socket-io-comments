@@ -38,12 +38,12 @@ export const PostForm: FC<{ onSubmit: (body: any) => void }> = ({ onSubmit }) =>
   return (
     <Form onSubmit={handleSubmit(CreatePost)}>
       <Container>
-        <TextField validation={register('title', requireString)} placeholder="Enter your title" />
-        {errors.title && <ErrorMessage error={errors.title?.message} />}
-        <TextField validation={register('body', requireString)} placeholder="Enter your body" />
-        {errors.body && <ErrorMessage error={errors.body?.message} />}
+        <TextField validation={register('title')} placeholder="Enter your title" />
+        {errors.title?.message && <ErrorMessage error={errors.title.message} />}
+        <TextField validation={register('body')} placeholder="Enter your body" />
+        {errors.body?.message && <ErrorMessage error={errors.body.message} />}
         <FileInput {...register('file', fileValidation)} type="file" />
-        {errors.file && <ErrorMessage error={errors.file?.message} />}
+        {errors.file?.message && <ErrorMessage error={errors.file.message} />}
         <PostFlex>
           <Button type="submit" disabled={!isDirty || !isValid}>
             Send

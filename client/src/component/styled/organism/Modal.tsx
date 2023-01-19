@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Loader } from './Load';
 import { motion } from 'framer-motion';
-import {IModalProp} from "../../../types/components/components.type";
 
 const portalRoot = document.getElementById('portal-root')!;
 
@@ -41,7 +40,12 @@ const ScrollDisabler = createGlobalStyle`
   }
 `;
 
-
+interface IModalProp {
+  isOpen: boolean;
+  close: () => void;
+  children: ReactNode;
+  isLoading?: boolean | null;
+}
 
 const Modal: FC<IModalProp> = ({ isOpen, close, children, isLoading }) => {
   if (!isOpen) return null;
