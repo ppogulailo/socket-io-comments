@@ -5,6 +5,11 @@ export interface IPostCreate {
   title: string;
   file: File;
 }
+export interface IPostForm {
+  body: string;
+  title: string;
+  file: FileList;
+}
 
 export interface PostListProp {
   post: IPost[];

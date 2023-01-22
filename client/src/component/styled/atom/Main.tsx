@@ -20,7 +20,7 @@ export const WrapperAuth = styled.div`
   width: 100%;
   height: 100%;
 `;
-const Main = ({ children }: ReactChildren) => (
+const Main = ({ children }: ReactChildren): JSX.Element => (
   <Wrapper>
     <Container>{children}</Container>
   </Wrapper>

@@ -1,7 +1,6 @@
 import { useComment } from '../hoc/comment.provider';
 import { Center, ColorText, TextOne } from './comment';
 import { CommentForm } from './comment.form';
-import { Pagination } from '../styled/organism/Pagination';
 import { CommentFilter } from './comment.filter';
 import { CommentList } from './comment.list';
 import styled from 'styled-components';
@@ -13,6 +12,7 @@ import { useSearchParams } from 'react-router-dom';
 import { Button } from '../styled/atom/Button';
 import { Form } from '../../page/auth.page';
 import { SERVER_IMAGE_DOWNLOAD } from '../../config/constant';
+import { Pagination } from '../styled/organism/Pagination';
 
 const GridContainer = styled.div`
   display: flex;
@@ -74,7 +74,9 @@ export const CommentWithPost = (): JSX.Element => {
       <CommentForm onSubmit={onCommentCreate} />
       <Form></Form>
       <ColorText>Comments</ColorText>
-      {(comments: IComment[]) => <CommentList comments={comments} />}
+      <Pagination root={rootComments} count={count} onPaginate={onCommentPaginate}>
+        {(comments: IComment[]) => <CommentList comments={comments} />}
+      </Pagination>
     </>
   );
 };

@@ -41,7 +41,7 @@ export const passwordValidation = {
 };
 
 export const fileValidation = {
-  validate: (value:any) => {
+  validate: (value: any): boolean | string => {
     if (value.length > 0) {
       return true;
     }

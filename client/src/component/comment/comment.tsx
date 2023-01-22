@@ -112,7 +112,7 @@ const Comment: FC<IComment> = ({
         <IconBtn onClick={onToggleCommentLike} Icon={likedByMe ? FaHeart : FaRegHeart}>
           {likeCount}
         </IconBtn>
-        <IconBtn onClick={() => setIsReplying(!isReplying)} isActive={isReplying} Icon={FaReply} />
+        <IconBtn onClick={() => setIsReplying(!isReplying)} Icon={FaReply} />
 
         {user.id === userId && (
           <>

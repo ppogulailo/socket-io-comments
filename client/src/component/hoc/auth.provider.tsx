@@ -6,7 +6,7 @@ const Auth = React.createContext<{ isAuth: boolean | null } | null>(null);
 
 export function useAuth() {
   const authContext = useContext(Auth);
-  if (!authContext) throw new Error('You need to use this hook inside a context provider');
+  if (!authContext) throw new Error('Unexpected error!');
   return authContext;
 }
 

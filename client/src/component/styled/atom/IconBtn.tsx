@@ -24,12 +24,10 @@ const IconButton = styled.button`
 
 export function IconBtn({
   Icon,
-  isActive,
   children,
   onClick,
 }: {
   Icon: IconType;
-  isActive?: boolean;
   children?: ReactNode;
   onClick: dispatchAction<any>;
 }) {

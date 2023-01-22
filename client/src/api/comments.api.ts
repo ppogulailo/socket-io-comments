@@ -47,7 +47,7 @@ export const CommentApi = {
   likeComment(id: string): void {
     socket.emit('toggleLike', id);
   },
-  getChildrenComment(id: string[]) {
+  getChildrenComment(id: string[]): void {
     socket.emit('getChildren', id);
   },
   onGetChildrenComment(callback: CallBackValue<IComment[]>): void {
