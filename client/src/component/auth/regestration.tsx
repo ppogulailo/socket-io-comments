@@ -78,7 +78,7 @@ export const Registration: FC<IRegistration> = ({ toggle, setToggle }) => {
             )}
             <ReCAPTCHA
               onChange={onChange}
-              sitekey="6LeuvdIjAAAAAAJxcuFahurWn_QvvYcHJeUY_0Ff"
+              sitekey={`${process.env.REACT_APP_RECAPTCHA_SECRET}`}
               theme={theme}
             />
             <Button>Continue</Button>
