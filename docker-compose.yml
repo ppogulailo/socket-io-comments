@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  nest-api:
+    build:
+      context: server
+      dockerfile: Dockerfile
+    container_name: nest-api
+    restart: always
+    ports:
+      - 4000:4000
+    depends_on:
+      - postgres
+    environment:
+      DATABASE_URL: postgres://user:password@postgres:5432/db
+      NODE_ENV: development
+      JWT_REFRESH_SECRET: JWT_REFRESH_SECRET
+      JWT_ACCESS_SECRET: JWT_ACCESS_SECRET
+      PORT: 3000
+    env_file:
+      - ./server/.env
+  postgres:
+    image: postgres:10.4
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+    ports:
+      - 5432:5432
+    volumes:
+       - postgres:/var/lib/postgresql/data
+
+volumes:
+  postgres:
+    name: nest-prisma-docker-db

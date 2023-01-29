@@ -23,7 +23,6 @@ import { CreateCommentDto } from './dto/create-comment.dto';
 import { FindCommentDto } from './dto/find-comment.dto';
 import { HtmlValidationPipe } from '../common/pipes/html-validation.pipe';
 import { MyWsExceptionFilter } from '../common/guards/webSocket.exeption';
-import { User } from '@prisma/client';
 import { ChildrenCommentDto } from './dto/children-comment.dto';
 
 @UseInterceptors(CacheInterceptor)
@@ -49,7 +48,7 @@ export class CommentGateway {
       const decodedToken = await this.authService.verifyUser(
         socket.handshake.auth.token.split(' ')[1],
       );
-      const user: User = await this.userService.findById(decodedToken.sub);
+      const user: any = await this.userService.findById(decodedToken.sub);
       if (!user) {
         return this.disconnect(socket);
       } else {

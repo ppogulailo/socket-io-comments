@@ -16,6 +16,10 @@ export class RecaptchaGuard implements CanActivate {
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const { recaptcha } = context.switchToHttp().getRequest().headers;
+    console.log(recaptcha)
+    console.log('sec',this.configService.get(
+          'RECAPTCHA_SECRET',
+        ))
     const { data } = await this.httpService
       .post(
         `https://www.google.com/recaptcha/api/siteverify?response=${recaptcha}&secret=${this.configService.get(

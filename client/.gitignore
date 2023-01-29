@@ -10,10 +10,11 @@ pnpm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
-
+.eslintrc.json
 # OS
 .DS_Store
-
+.env
+.eslintrc.json
 # Tests
 /coverage
 /.nyc_output
