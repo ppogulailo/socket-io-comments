@@ -41,12 +41,12 @@ Example of file:
 
 
 ### Start the Backend in dev Mode after you added the .env file
-`cd api`  
+`cd server`  
 `npm install`  
 `npm start`
   
 ### Start the Frontend in dev Mode after you added the .env file
-`cd frontend`    
+`cd client`    
 `npm install`  
 `npm start`
 
